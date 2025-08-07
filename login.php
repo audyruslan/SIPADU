@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "Login - Crystal Champer Palu";
+$title = "Login - SIPANDURUMKIT";
 require 'functions.php';
 
 // cek cookie
