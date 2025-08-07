@@ -11,6 +11,7 @@ function tambah($data)
     $tgl_pengaduan  = mysqli_real_escape_string($conn, $data['tgl_pengaduan']);
     $ruang_poli     = mysqli_real_escape_string($conn, $data['ruang_poli']);
     $rawat_inap     = mysqli_real_escape_string($conn, $data['rawat_inap']);
+    $keluhan     = mysqli_real_escape_string($conn, $data['keluhan']);
 
     $filename = '';
     if (isset($_FILES['foto']) && $_FILES['foto']['error'] == 0) {
@@ -23,9 +24,9 @@ function tambah($data)
     $img_dir = $filename;
 
     $query = "INSERT INTO tb_pengaduan 
-                (nama_lengkap, alamat_lengkap, tgl_pengaduan, ruang_poli, rawat_inap, img_dir)
+                (nama_lengkap, alamat_lengkap, tgl_pengaduan, ruang_poli, rawat_inap, keluhan, img_dir)
               VALUES 
-                ('$nama_lengkap', '$alamat_lengkap', '$tgl_pengaduan', '$ruang_poli', '$rawat_inap', '$img_dir')";
+                ('$nama_lengkap', '$alamat_lengkap', '$tgl_pengaduan', '$ruang_poli', '$rawat_inap', '$keluhan', '$img_dir')";
 
     mysqli_query($conn, $query);
 

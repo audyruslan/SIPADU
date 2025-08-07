@@ -159,8 +159,18 @@ require 'layouts/sidebar.php';
                                                                 <div class="form-group">
                                                                     <label for="alamat_lengkap">Alamat Lengkap</label>
                                                                     <textarea class="form-control" name="alamat_lengkap"
-                                                                        id="alamat_lengkap" cols="30" rows="5"
-                                                                        placeholder="Deskripsi Product"><?= $row["alamat_lengkap"]; ?></textarea>
+                                                                        id="alamat_lengkap"
+                                                                        placeholder="Alamat Lengkap"><?= $row["alamat_lengkap"]; ?></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="keluhan">Keluhan</label>
+                                                                    <textarea class="form-control" name="keluhan"
+                                                                        id="keluhan"
+                                                                        placeholder="Keluhan"><?= $row["keluhan"]; ?></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -11,6 +11,7 @@ function ubah($data)
     $ruang_poli = $data['ruang_poli'];
     $rawat_inap = $data['rawat_inap'];
     $alamat_lengkap = $data['alamat_lengkap'];
+    $keluhan = $data['keluhan'];
 
     $imgLama = $data["imgLama"];
 
@@ -22,7 +23,8 @@ function ubah($data)
                 ruang_poli = '$ruang_poli',
                 rawat_inap = '$rawat_inap',
                 img_dir = '$imgLama',
-                alamat_lengkap = '$alamat_lengkap'
+                alamat_lengkap = '$alamat_lengkap',
+                keluhan = '$keluhan'
                 WHERE users_id = $users_id
 			";
     } else {
@@ -37,7 +39,8 @@ function ubah($data)
                 ruang_poli = '$ruang_poli',
                 rawat_inap = '$rawat_inap',
                 img_dir = '$img_dir',
-                alamat_lengkap = '$alamat_lengkap'
+                alamat_lengkap = '$alamat_lengkap',
+                keluhan = '$keluhan'
                 WHERE users_id = $users_id
 			";
     }

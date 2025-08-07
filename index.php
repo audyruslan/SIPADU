@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Dropzone CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
     <style>
         .dropzone {
             border: 3px dashed #5a5959;
@@ -94,7 +95,11 @@
                                 </select>
                                 <span class="invalid-feedback">Mohon Pilih Salah Satu Unit Rawat.</span>
                             </div>
-
+                            <div class="mb-3">
+                                <label for="keluhan">Masukkan Keluhan</label>
+                                <textarea class="form-control" name="keluhan" id="keluhan" placeholder="Msaukkan Keluhan Anda......." rows="5"></textarea>
+                            </div>
+                            <hr>
                             <div class="mb-3">
                                 <label class="form-label">Upload Foto</label>
                                 <div class="dropzone" id="my-dropzone"></div>
@@ -129,7 +134,7 @@
         let isValid = true;
 
         const fields = [
-            "nama_lengkap", "alamat_lengkap", "tgl_pengaduan", "ruang_poli", "rawat_inap"
+            "nama_lengkap", "alamat_lengkap", "tgl_pengaduan", "ruang_poli", "rawat_inap","keluhan"
         ];
 
         fields.forEach(id => {
@@ -164,6 +169,7 @@
         formData.append('tgl_pengaduan', document.getElementById("tgl_pengaduan").value);
         formData.append('ruang_poli', document.getElementById("ruang_poli").value);
         formData.append('rawat_inap', document.getElementById("rawat_inap").value);
+        formData.append('keluhan', document.getElementById("keluhan").value);
         formData.append('tambah', true);
 
         const response = await fetch("pengaduan/add.php", {
