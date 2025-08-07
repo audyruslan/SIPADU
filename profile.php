@@ -13,6 +13,34 @@ $user = $_SESSION["username"];
 $query = mysqli_query($conn, "SELECT * FROM tb_admin WHERE username = '$user'");
 $admin = mysqli_fetch_assoc($query);
 require 'layouts/sidebar.php';
+
+if (isset($_POST["ubah"])) {
+
+    $username = $_POST["username"];
+    $password_lama = $_POST["password_lama"];
+    $password_baru = $_POST["password_baru"];
+    $konfirmasi_password = $_POST["konfirmasi_password"];
+
+
+    $result = mysqli_query($conn, "SELECT * FROM tb_admin WHERE username = '$username'");
+    $row = mysqli_fetch_assoc($result);
+    if (password_verify($password_lama, $row["password"])) {
+        if ($password_baru == $konfirmasi_password) {
+            // enkripsi password
+            $password_baru = password_hash($password_baru, PASSWORD_DEFAULT);
+            $query = "UPDATE tb_admin SET password = '$password_baru' WHERE username = '$username' ";
+            mysqli_query($conn, $query);
+            $_SESSION['pesan'] = "<strong>Password Berhasil Diubah!</strong>";
+        } else {
+            $_SESSION['error'] = "<strong>Konfirmasi Password Salah!</strong>";
+        }
+    } else {
+        $_SESSION['error'] = "<strong>Password Lama Salah!</strong>";
+    }
+
+
+    $error = true;
+}
 ?>
 
 <div class="content-wrapper">
@@ -31,6 +59,7 @@ require 'layouts/sidebar.php';
                 </div><!-- /.col -->
             </div><!-- /.row -->
             <div class="row">
+                <div class="col-12">
                 <?php if (isset($_SESSION['pesan'])) { ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <?= $_SESSION['pesan'];  ?>
@@ -49,6 +78,9 @@ require 'layouts/sidebar.php';
                     </div>
                     <?php unset($_SESSION['error']); ?>
                 <?php } ?>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-3">
                     <!-- Profile Image -->
                     <div class="card card-primary card-outline">
