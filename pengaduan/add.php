@@ -7,6 +7,8 @@ function tambah($data)
     global $conn;
 
     $nama_lengkap   = mysqli_real_escape_string($conn, $data['nama_lengkap']);
+    $email   = mysqli_real_escape_string($conn, $data['email']);
+    $no_hp   = mysqli_real_escape_string($conn, $data['no_hp']);
     $alamat_lengkap = mysqli_real_escape_string($conn, $data['alamat_lengkap']);
     $tgl_pengaduan  = mysqli_real_escape_string($conn, $data['tgl_pengaduan']);
     $ruang_poli     = mysqli_real_escape_string($conn, $data['ruang_poli']);
@@ -24,9 +26,9 @@ function tambah($data)
     $img_dir = $filename;
 
     $query = "INSERT INTO tb_pengaduan 
-                (nama_lengkap, alamat_lengkap, tgl_pengaduan, ruang_poli, rawat_inap, keluhan, img_dir)
+                (nama_lengkap, email, no_hp, alamat_lengkap, tgl_pengaduan, ruang_poli, rawat_inap, keluhan, img_dir)
               VALUES 
-                ('$nama_lengkap', '$alamat_lengkap', '$tgl_pengaduan', '$ruang_poli', '$rawat_inap', '$keluhan', '$img_dir')";
+                ('$nama_lengkap', '$email', '$no_hp', '$alamat_lengkap', '$tgl_pengaduan', '$ruang_poli', '$rawat_inap', '$keluhan', '$img_dir')";
 
     mysqli_query($conn, $query);
 

@@ -7,6 +7,8 @@ function ubah($data)
     global $conn;
     $users_id = $data["users_id"];
     $nama_lengkap = $data['nama_lengkap'];
+    $email = $data['email'];
+    $no_hp = $data['no_hp'];
     $tgl_pengaduan = $data['tgl_pengaduan'];
     $ruang_poli = $data['ruang_poli'];
     $rawat_inap = $data['rawat_inap'];
@@ -19,6 +21,8 @@ function ubah($data)
         $query = "UPDATE tb_pengaduan
                 SET	
                 nama_lengkap = '$nama_lengkap',
+                email = '$email',
+                no_hp = '$no_hp',
                 tgl_pengaduan = '$tgl_pengaduan',
                 ruang_poli = '$ruang_poli',
                 rawat_inap = '$rawat_inap',
@@ -35,6 +39,8 @@ function ubah($data)
         $query = "UPDATE tb_pengaduan
                 SET
 				nama_lengkap = '$nama_lengkap',
+				email = '$email',
+				no_hp = '$no_hp',
                 tgl_pengaduan = '$tgl_pengaduan',
                 ruang_poli = '$ruang_poli',
                 rawat_inap = '$rawat_inap',

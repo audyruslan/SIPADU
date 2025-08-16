@@ -149,18 +149,29 @@ require 'layouts/sidebar.php';
                                                                         <option value="Griya Gampiri" <?= ($row['rawat_inap'] == "Griya Gampiri") ? 'selected' : '' ?>>Griya Gampiri</option>
                                                                         <option value="Sando Husada" <?= ($row['rawat_inap'] == "Sando Husada") ? 'selected' : '' ?>>Sando Husada</option>
                                                                         <option value="OK" <?= ($row['rawat_inap'] == "OK") ? 'selected' : '' ?>>OK</option>
-
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-12">
+                                                        <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="alamat_lengkap">Alamat Lengkap</label>
-                                                                    <textarea class="form-control" name="alamat_lengkap"
-                                                                        id="alamat_lengkap"
-                                                                        placeholder="Alamat Lengkap"><?= $row["alamat_lengkap"]; ?></textarea>
+                                                                    <label for="email">Email</label>
+                                                                    <input type="email" autocomplete="off"
+                                                                        class="form-control" id="email"
+                                                                        name="email"
+                                                                        value="<?= $row["email"]; ?>"
+                                                                        placeholder="Email">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="no_hp">No. Handphone</label>
+                                                                    <input type="text" autocomplete="off"
+                                                                        class="form-control" id="no_hp"
+                                                                        name="no_hp"
+                                                                        value="<?= $row["no_hp"]; ?>"
+                                                                        placeholder="No. Handphone">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -170,13 +181,15 @@ require 'layouts/sidebar.php';
                                                                     <label for="keluhan">Keluhan</label>
                                                                     <textarea class="form-control" name="keluhan"
                                                                         id="keluhan"
-                                                                        placeholder="Keluhan"><?= $row["keluhan"]; ?></textarea>
+                                                                        placeholder="Keluhan" rows="6" readonly><?= $row["keluhan"]; ?></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <h6 class="text-center"><b>Gambar/Foto</b></h6>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                            <h6 class="text-center"><b>Gambar/Foto</b></h6>
                                                         <div class="drop-zone">
                                                             <span class="drop-zone__prompt">Drop file here or click to
                                                                 upload</span>
@@ -186,6 +199,17 @@ require 'layouts/sidebar.php';
                                                                 data-label="<?= $row["img_dir"]; ?>">
                                                             </div>
                                                         </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                    <label for="alamat_lengkap">Alamat Lengkap</label>
+                                                                    <textarea class="form-control" name="alamat_lengkap"
+                                                                        id="alamat_lengkap"
+                                                                        placeholder="Alamat Lengkap"><?= $row["alamat_lengkap"]; ?></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

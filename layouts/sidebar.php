@@ -38,6 +38,14 @@
                           </p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                      <a href="pengaduan.php" class="nav-link <?php if ($menu == "Data Pengaduan") echo "active"; ?>">
+                          <i class="nav-icon fas fa-file"></i>
+                          <p>
+                              Laporan Keluhan
+                          </p>
+                      </a>
+                  </li>
                   <div class="nav-header">Menu Lainnya</div>
                   <li class="nav-item <?php if ($menu == "Profile") echo "menu-open"; ?>">
                       <a href="#" class="nav-link <?php if ($menu == "Profile") echo "active"; ?>">

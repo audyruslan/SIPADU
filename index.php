@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Dropzone CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
     <style>
         .dropzone {
             border: 3px dashed #5a5959;
@@ -22,6 +21,11 @@
         .dropzone.is-invalid {
             border-color: red !important;
         }
+
+        .gambarLogo{
+            margin-top: -150px;
+            margin-bottom: -130px;
+        }
     </style>
 </head>
 
@@ -30,6 +34,7 @@
     <div class="container mt-5">
         <div class="row">
         <div class="col-sm-12 col-md-4 mx-auto">
+            <img class="img-fluid gambarLogo" src="assets/img/Logo.png" alt="">
                 <div class="card shadow-lg">
                     <div class="card-header bg-success text-white">
                         <h4 class="mb-0">Form Kuisioner Pengaduan</h4>
@@ -42,6 +47,20 @@
                                 <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
                                     placeholder="Nama Lengkap">
                                 <span class="invalid-feedback">Mohon Masukkan Nama Lengkap.</span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Masukkan Email">
+                                <span class="invalid-feedback">Mohon Masukkan Email.</span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="no_hp" class="form-label">No.Handphone</label>
+                                <input type="text" class="form-control" id="no_hp" name="no_hp"
+                                    placeholder="Masukkan No.Handphone">
+                                <span class="invalid-feedback">Mohon Masukkan Handphone.</span>
                             </div>
 
                             <div class="mb-3">
@@ -82,7 +101,7 @@
                             <div class="mb-3">
                                 <label for="rawat_inap" class="form-label">Rawat Inap / UGD</label>
                                 <select class="form-select" id="rawat_inap" name="rawat_inap">
-                                    <option value="" selected disabled>--Pilih Rawat Inap/UGD--</option>
+                                    <option value="" selected disabled>--Pilih Rawat Inap--</option>
                                     <option value="Rawat Inap">Rawat Inap</option>
                                     <option value="UGD">UGD</option>
                                     <option value="Satria Balia">Satria Balia</option>
@@ -134,7 +153,7 @@
         let isValid = true;
 
         const fields = [
-            "nama_lengkap", "alamat_lengkap", "tgl_pengaduan", "ruang_poli", "rawat_inap","keluhan"
+            "nama_lengkap", "email", "no_hp", "alamat_lengkap", "tgl_pengaduan", "ruang_poli", "rawat_inap","keluhan"
         ];
 
         fields.forEach(id => {
@@ -165,6 +184,8 @@
         const formData = new FormData();
         formData.append('foto', file);
         formData.append('nama_lengkap', document.getElementById("nama_lengkap").value);
+        formData.append('email', document.getElementById("email").value);
+        formData.append('no_hp', document.getElementById("no_hp").value);
         formData.append('alamat_lengkap', document.getElementById("alamat_lengkap").value);
         formData.append('tgl_pengaduan', document.getElementById("tgl_pengaduan").value);
         formData.append('ruang_poli', document.getElementById("ruang_poli").value);
