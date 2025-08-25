@@ -26,10 +26,29 @@
             margin-top: -150px;
             margin-bottom: -130px;
         }
+
+        #loadingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.8); 
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 
 <body class="bg-light">
+<div id="loadingOverlay">
+    <div class="spinner-border text-success" role="status" style="width: 4rem; height: 4rem;">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="ms-3 text-success fw-bold">Mengirim data, mohon tunggu...</p>
+</div>
 
     <div class="container mt-5">
         <div class="row">
@@ -117,6 +136,7 @@
                             <div class="mb-3">
                                 <label for="keluhan">Masukkan Keluhan</label>
                                 <textarea class="form-control" name="keluhan" id="keluhan" placeholder="Msaukkan Keluhan Anda......." rows="5"></textarea>
+                                <span class="invalid-feedback">Mohon Masukkan Keluhan Anda.</span>
                             </div>
                             <hr>
                             <div class="mb-3">
@@ -193,14 +213,28 @@
         formData.append('keluhan', document.getElementById("keluhan").value);
         formData.append('tambah', true);
 
-        const response = await fetch("pengaduan/add.php", {
-            method: "POST",
-            body: formData
-        });
+        // 🔹 Tampilkan loading overlay
+        document.getElementById("loadingOverlay").style.display = "flex";
 
-        const result = await response.text();
-        // alert(result);
-        window.location.href = "success.php";
+        try {
+            const response = await fetch("pengaduan/add.php", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.text();
+            console.log(result);
+
+            // 🔹 Sembunyikan overlay setelah selesai
+            document.getElementById("loadingOverlay").style.display = "none";
+
+            // Redirect ke halaman sukses
+            window.location.href = "success.php";
+        } catch (error) {
+            console.error(error);
+            document.getElementById("loadingOverlay").style.display = "none";
+            alert("Terjadi kesalahan saat mengirim data!");
+        }
     });
 </script>
 

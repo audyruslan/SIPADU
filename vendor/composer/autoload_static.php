@@ -7,21 +7,22 @@ namespace Composer\Autoload;
 class ComposerStaticInit870e9b9214bb0fa110f654f69146fd90
 {
     public static $prefixLengthsPsr4 = array (
-        'M' => 
+        'P' => 
         array (
-            'Mike42\\' => 7,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Mike42\\' => 
+        'PHPMailer\\PHPMailer\\' => 
         array (
-            0 => __DIR__ . '/..' . '/mike42/escpos-php/src/Mike42',
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'UltraMsg\\WhatsAppApi' => __DIR__ . '/..' . '/ultramsg/whatsapp-php-sdk/ultramsg.class.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
